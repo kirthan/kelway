@@ -1,0 +1,80 @@
+{
+	"/email-notification" : {
+		"module" 		: "email_actions",
+		"authorisation"	: "user",
+		"subroutes" 	: {
+			"/attach-media" : {
+				"method"		: "attachMedia",
+				"authorisation"	: "user", 
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Attach media"
+				} 
+			},
+			"/delete-server": {
+				"method"		: "deleteServer", 
+				"authorisation"	: "user",
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Delete server"
+				} 
+			},
+			"/detach-media" : {
+				"method"		: "detachMedia",
+				"authorisation"	: "user",
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Requesting to dettach media"
+				} 
+			},
+			"/edit-description" : {
+				"method"		: "editDescription", 
+				"authorisation"	: "user",
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Requesting to edit server description"
+				} 
+			},
+			"/power-off-server" : { 
+				"method"		: "powerOffServer",
+				"authorisation"	: "user",
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Requesting to power off Server"
+				}
+			},
+			"/reset-server" : { 
+				"method"		: "resetServer",
+				"authorisation"	: "user", 
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Requesting to reset server"
+				} 
+			},
+			"/shutdown-server" : {
+			 	"method"		: "shutdownServer", 
+			 	"authorisation"	: "user",
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Requesting to shutdown server"
+				} 
+			},
+			"/ssh-details" 	: { 
+				"method"		: "sshDetails", 
+				"authorisation"	: "user",
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Requesting for SSH details"
+				} 
+			},
+			"/upgrade-server" : { 
+				"method"		: "upgradeServer", 
+				"authorisation"	: "user",
+				"req_method"	: "post",
+				"params"		: {
+					"audit_log_message" : "Requesting to upgrade server"
+				} 
+			}
+		}
+	}
+}

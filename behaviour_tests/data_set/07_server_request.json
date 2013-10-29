@@ -1,0 +1,50 @@
+{
+	"serverSize": {
+		"valid" 	: ["small", "small1"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"class": {
+		"valid" 	: ["essential", "essential1"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"operatingSystem": {
+		"valid" 	: ["operatingSystem", "operatingSystem1"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"location": {
+		"valid" 	: ["location1", "location2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"network": {
+		"valid" 	: ["network1", "network2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"name": {
+		"valid" 	: ["name1", "name2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},	
+	"additionalStorage": {
+		"valid" 	: ["10GB" , "20GB"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"backupService": {
+		"valid" 	: [true , false],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"ltrPolicyA": {
+		"valid" 	: [true, false],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"ltrPolicyB": {
+		"valid" 	: [true, false],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"ltrPolicyC": {
+		"valid" 	: [true, false],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"ltrPolicyD": {
+		"valid" 	: [true, false],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	}
+}

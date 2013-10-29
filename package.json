@@ -1,0 +1,28 @@
+{
+  "name": "orange",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "mongoose": "*",
+    "validator": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "crypto": "*",
+    "restify": "*",
+    "mocha": "*",
+    "should":"*",
+    "underscore":"*",
+    "async":"*",
+    "xunit-file":"*",
+    "MD5":"*",
+    "moment":"*",
+    "nodemailer":"*",
+    "mustache":"*",
+    "randomstring":"*",
+    "nodemock":"*",
+    "memcached":"*"
+  }
+}

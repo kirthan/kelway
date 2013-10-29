@@ -1,0 +1,14 @@
+{
+	"name": {
+		"valid" 	: ["name1", "name2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"shortCode": {
+		"valid" 	: ["code1", "code2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"accountManager": {
+		"valid" 	: ["accountManager1", "accountManager2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	}
+}

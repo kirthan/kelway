@@ -1,0 +1,4 @@
+ID,Name,Email,Password,Roles
+3,user,someemail@email.com,somepassword,user
+2,admin,someemail3@email.com,somepassword,admin|user
+1,superadmin,someemail2@email.com,somepassword,admin|superAdmin|user

@@ -1,0 +1,18 @@
+{
+	"db"               		: "mongodb",
+	"server_reporting"    	: "nimsoft",
+	"static_content"   		: "db_static_content",
+	"servers"    			: "server",
+	"users" 		        : "user",
+	"validator"		        : "validator",
+	"companies" 	        : "company",
+	"emails"				: "email",
+	"email_actions"         : "email_action",
+	"notifications"         : "notification",
+	"server_requests"       : "server_request",
+	"form_fields" 			: "form_fields",
+	"account_managers"      : "account_manager",
+	"cache"				    : "memcached",
+	"method_exec"      		: "method_exec",
+	"audit_log"      		: "audit_log"
+}

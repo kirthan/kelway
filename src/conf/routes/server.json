@@ -1,0 +1,184 @@
+{
+	"/servers": {
+		"module"        : "db_crud",
+		"method"        : "read",
+		"authorisation" : "user",
+		"params"		: {
+			"model"   			: "server",
+			"query"  			: {"company_id": {"$regex":"${company}"}},
+			"before" 			: [ "servers.getCompany" ],
+			"after"  			:[ "server_reporting.powerStats","server_reporting.cpuStats",
+				        "server_reporting.memoryStats","server_reporting.diskStats",
+				        "server_reporting.diskIopStats"], 
+			"fields" 			: [ 
+				"name", "description","notes","company_id",
+				"nimsoft_id","customer_prefix","class","ip_address",
+				"operating_system","instance_size","has_service_backup",
+				"has_service_security","has_service_protection",
+				"has_service_monitoring","cpu_usage" 
+			]
+		},
+		"subroutes" : {
+			"/create" : {
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "create",
+				"authorisation" : "admin",
+				"params"		:{
+					"audit_log_message" : "New server created",
+					"model"   			: "server",
+					"validation" 		: {
+						"name" : { 
+							"required":	{
+								"error_message" : "Please enter Server Name."
+							}, 
+							"length": {
+								"min"			: 2, 
+								"max"			: 20,
+								"error_message" : "Please enter Server Name, allowed length is in the range of 5-20." 
+							}
+						},	
+						"company_id" : { 
+							"required":	{
+								"error_message" : "Please enter Company Id."
+							}
+						},
+						"nimsoft_id" : { 
+							"required":	{
+								"error_message" : "Please enter Nimsoft Id."
+							}
+						},
+						"class" : { 
+							"required":	{
+								"error_message" : "Please enter Class."
+							}
+						},
+						"ip_address" : { 
+							"required":	{
+								"error_message" : "Please enter IP address."
+							},
+							"ip" :{
+								"error_message" : "Please enter a valid IP Address,allowed format is xxx.xxx.xxx.xxx."
+							}
+						},
+						"operating_system" : { 
+							"required":	{
+								"error_message" : "Please enter Operating System."
+							}
+						},
+						"instance_size" : { 
+							"required":	{
+								"error_message" : "Please enter Instance Size."
+							}
+						}
+					}
+				}
+			},
+			"/update/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "admin",
+				"params"		:{
+					"audit_log_message" : "Server details edited",
+					"model"    	 		: "server",
+					"query" 	 		: { "_id" : "${id}" },
+					"validation" 		: {
+						"name" : { 
+							"required":	{
+								"error_message" : "Please enter Server Name."
+							}, 
+							"length": {
+								"min"			: 2, 
+								"max"			: 20,
+								"error_message" : "Please enter Server Name, allowed length is in the range of 5-20." 
+							}
+						},	
+						"company_id" : { 
+							"required" : {
+								"error_message" : "Please enter Company Id."
+							}
+						},
+						"nimsoft_id" : { 
+							"required":	{
+								"error_message" : "Please enter Nimsoft Id."
+							}
+						},
+						"class" : { 
+							"required" :	{
+								"error_message" : "Please enter Class."
+							}
+						},
+						"ip_address" : { 
+							"required" : {
+								"error_message" : "Please enter IP address."
+							},
+							"ip" :{
+								"error_message" : "Please enter a valid IP Address,allowed format is xxx.xxx.xxx.xxx."
+							}
+						},
+						"operating_system" : { 
+							"required":	{
+								"error_message" : "Please enter Operating System."
+							}
+						},
+						"instance_size" : { 
+							"required":	{
+								"error_message" : "Please enter Instance Size."
+							}
+						}
+					}
+				}
+			},
+			"/update-description/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params"		:{
+					"audit_log_message" : "Server description changed",
+					"model"    	 		: "server",
+					"query" 	 		: { "_id" : "${id}" },
+					"validation" 		: {
+						"description" : { "required": {"error_message" : "Please enter Description."} }
+					}
+				}
+			},
+			"/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "user",
+				"params"		: {
+					"audit_log_message" : "Audit Log Message",
+					"model"  			: "server",
+					"query" 			: { "_id" : "${id}" },
+					"fields" 			: [ "name", "description","notes","company_id","nimsoft_id","customer_prefix","class","ip_address","operating_system","instance_size","has_service_backup","has_service_security","has_service_protection","has_service_monitoring" ]
+				}
+			},
+			"/for-customer/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" : "Audit Log Message",
+					"model"   			: "server",
+					"query"  			: { "company_id" : "${id}" },
+					"fields" 			: [ "name", "description","notes","company_id","nimsoft_id","customer_prefix","class","ip_address","operating_system","instance_size","has_service_backup","has_service_security","has_service_protection","has_service_monitoring" ]
+				}
+			},
+			"/delete/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "delete",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" : "Server deleted",
+					"model"   			: "server",
+					"query"  			: { "_id" : "${id}" }
+				}
+			}
+		}
+	}
+}

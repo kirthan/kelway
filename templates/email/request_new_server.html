@@ -1,0 +1,82 @@
+Hi {{accountManager.first_name}} {{accountManager.last_name}},
+<p>
+<a href="mailto:{{user.email}}">{{user.first_name}} ({{user.user_name}})</a> of <a href="{{params.app_host}}/{{params.customer_detail}}">{{customer.name}}</a> has requested the<strong> New server </strong>  "<a href="{{params.app_host}}/{{params.server_detail}}/{{customer._id}}/load/{{server._id}}">{{requested_server.name}}</a>".
+</p>
+{{#requested_server}}
+<table style="width:100%;border:1px solid #ccc;">
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Name</th>
+		<td style="text-align:right;">{{name}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Server Size</th>
+		<td style="text-align:right;">{{server_size}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Class</th>
+		<td style="text-align:right;">{{class}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Operating System</th>
+		<td style="text-align:right;">{{operating_system}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">location</th>
+		<td style="text-align:right;">{{location}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Network</th>
+		<td style="text-align:right;">{{network}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Description</th>
+		<td style="text-align:right;">{{description}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Password</th>
+		<td style="text-align:right;">{{password}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Backup Service</th>
+		<td style="text-align:right;">
+			{{#backup_service}}Yes{{/backup_service}}
+			{{^backup_service}}No{{/backup_service}}
+		</td>
+	</tr>
+	{{#backup_service}}
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;"> Backup Services </th>
+		<td style="text-align:right;">
+			{{#ltr_policy_a}}Long Term Rotation Policy A <br />{{/ltr_policy_a}}
+			{{#ltr_policy_b}}Long Term Rotation Policy B <br />{{/ltr_policy_b}}
+			{{#ltr_policy_c}}Long Term Rotation Policy C <br />{{/ltr_policy_c}}
+			{{#ltr_policy_d}}Long Term Rotation Policy D <br />{{/ltr_policy_d}}
+		</td>	
+	</tr>
+	{{/backup_service}}
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Additional Storage</th>
+		<td style="text-align:right;">{{additional_storage}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">is_confirmed</th>
+		<td style="text-align:right;">
+			{{#is_confirmed}}Yes{{/is_confirmed}}
+			{{^is_confirmed}}No{{/is_confirmed}}
+		</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Server cost</th>
+		<td style="text-align:right;">&pound; {{server_cost}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Memory cost</th>
+		<td style="text-align:right;">&pound; {{memory_cost}}</td>
+	</tr>
+	<tr style="border:1px solid #ccc;">
+		<th style="text-align:left;">Total cost</th>
+		<td style="text-align:right;">&pound; {{total_cost}}</td>
+	</tr>
+</table>
+{{/requested_server}}
+This is a system generated Email. Please do not respond to this email.

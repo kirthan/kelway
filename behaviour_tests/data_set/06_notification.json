@@ -1,0 +1,22 @@
+{
+	"title": {
+		"valid" 	: ["title1", "title2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"description": {
+		"valid" 	: ["description1", "description2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"resolveURL": {
+		"valid" 	: ["resolveURL1", "resolveURL2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},	
+	"severity": {
+		"valid" 	: ["severity1", "severity2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"notificationClass": {
+		"valid" 	: ["notificationClass1", "notificationClass2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	}
+}

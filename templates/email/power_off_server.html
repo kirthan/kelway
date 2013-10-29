@@ -1,0 +1,5 @@
+Hi {{accountManager.first_name}} {{accountManager.last_name}},
+<p>
+<a href="mailto:{{user.email}}">{{user.user_name}}</a> of <a href="{{params.app_host}}/{{params.customer_detail}}">{{customer.name}}</a> has requesed to <strong>Power Off</strong> the server "<a href="{{params.app_host}}/{{params.server_detail}}/{{customer._id}}/load/{{server._id}}">{{server.name}}</a>".
+</p>
+This is a system generated Email. Please do not respond to this email.

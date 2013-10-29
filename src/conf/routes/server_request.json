@@ -1,0 +1,153 @@
+{
+	"/server-request": {
+		"module"        : "db_crud",
+		"method"        : "read",
+		"authorisation" : "user",
+		"params"		: {
+			"model"   			: "server_request",
+			"query"  			: {"company_id": {"$regex":"${company_id}"}},
+			"before" 			: [ "server_requests.getCompany"],
+			"fields" 			: [ "server_size","class","operating_system","location","network","name","description","backup_service","additional_storage","ltr_policy_a","ltr_policy_b","ltr_policy_c","ltr_policy_d","password","is_confirmed", "server_cost", "memory_cost","total_cost" ]
+		},
+		"subroutes" : {
+			"/create" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "create",
+				"authorisation" : "user",
+				"params":{
+					"model"    	 		: "server_request",
+					"before" 	 		: [ "server_requests.getCompany","server_requests.generatePassword"],
+					"validation" 		: {
+						"server_size"  : { "required":	{"error_message": "Please select Server size."} }
+					}
+				}
+			},
+			"/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "user",
+				"params"		: {
+					"model"   			: "server_request",
+					"query"  			: { "_id" : "${id}" },
+					"fields" 			: [ "server_size","class","operating_system","location","network","name","description","backup_service","additional_storage","ltr_policy_a","ltr_policy_b","ltr_policy_c","ltr_policy_d" ,"password","is_confirmed", "server_cost", "memory_cost","total_cost" ]
+				}
+			},
+			"/step1/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params" 		: {
+					"model"    	 		: "server_request",
+					"query" 	 		: { "_id" : "${id}" },
+					"validation" 		: {
+						"server_size"  : { "required":	{"error_message" : "Please select Server size."} }
+					}
+				}
+			},
+			"/step2/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params":{
+					"model"    	 : "server_request",
+					"query" 	 : { "_id" : "${id}" },
+					"validation" : {
+						"class" 	: { "required":	{"error_message":"Please select Class."} }
+					}
+				}
+			},	
+			"/step3/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params":{
+					"model"    	 		: "server_request",
+					"query" 	 		: { "_id" : "${id}" },
+					"validation" 		: {
+						"operating_system" 	: { "required":	{"error_message" : "Please select Operating system."} },
+						"location" 			: { "required":	{"error_message" : "Please select Location."} },
+						"network" 			: { "required":	{"error_message" : "Please select Network."} }
+					}
+				}
+			},
+			"/step4/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params":{
+					"model"    	 		: "server_request",
+					"query" 	 		: { "_id" : "${id}" },
+					"validation" 		: {
+						"name" 	: { "required":	{"error_message" : "Please enter Server name."} }
+					}
+				}
+			},
+			"/step5/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params":{
+					"model"    	 		: "server_request",
+					"query" 	 		: { "_id" : "${id}" },
+					"before" 	 		: ["server_requests.updateCost", "server_requests.setBackupService"],
+					"validation" 		: {
+						"additional_storage" 	: { "required":	{"error_message" : "Please select Additional Storage."} }
+					}
+				}
+			},
+			"/step6/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params" : {
+					"before" 	 		: ["server_requests.setLTRService"],
+					"model"    	 		: "server_request",
+					"query" 	 		: { "_id" : "${id}" }
+				}
+			},
+			"/step7/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params":{
+					"audit_log_message" : "New server requested",
+					"model"    	 		: "server_request",
+					"query" 	 		: { "_id" : "${id}" },
+					"before" 			: ["server_requests.validateMandatoryFields"],
+					"after"		 		: ["server_requests.sendServerRequestEmail"]
+				}
+			},
+			"/delete/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "delete",
+				"authorisation" : "user",
+				"params"		: {
+					"audit_log_message" : "Requested to delete Server",
+					"model"   			: "server_request",
+					"query"  			: { "_id" : "${id}" }
+				}
+			},
+			"/for-customer/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "user",
+				"params"		: {
+					"model"   			: "server_request",
+					"query"  			: { "company_id" : "${id}", "is_confirmed" : true},
+					"fields" 			: [ "server_size","class","operating_system","location","network","name","description","backup_service","additional_storage","ltr_policy_a","ltr_policy_b","ltr_policy_c","ltr_policy_d","is_confirmed" , "server_cost", "memory_cost","total_cost" ]
+				}
+			}
+		}
+	}
+}

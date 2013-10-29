@@ -1,0 +1,10 @@
+{
+	"superAdminUserName": {
+		"valid" 	: ["superadmin"],
+		"inValid" 	: "sdsfsadfs"
+	},
+	"superAdminPassword": {
+		"valid" 	: ["indian"],
+		"inValid" 	: "qwrqweqe"
+	}
+}

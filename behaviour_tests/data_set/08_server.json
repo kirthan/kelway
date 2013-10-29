@@ -1,0 +1,30 @@
+{
+	"name": {
+		"valid" 	: ["name1", "name2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"nimsoftID": {
+		"valid" 	: ["nimsoftID1", "nimsoftID2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"class": {
+		"valid" 	: ["class1", "class2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},	
+	"ipAddress": {
+		"valid" 	: ["123.123.123.123", "123.123.123.122"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"operatingSystem": {
+		"valid" 	: ["operatingSystem1", "operatingSystem2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"instanceSize": {
+		"valid" 	: ["instanceSize1", "instanceSize2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"description": {
+		"valid" 	: ["description1", "description2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	}
+}

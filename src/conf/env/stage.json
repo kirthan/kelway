@@ -1,0 +1,14 @@
+{
+	"VERSION" : "1.0.0",
+	
+	"API_PORT" : "4444",
+
+	"BASE_URL" : "http://localhost:4444/",
+
+	"SALT" 		: "06@NG3",
+	
+	"TOKEN_TIMEOUT": 15000,
+
+	"DB_URL"  : "mongodb://localhost:27017/",
+	"DB_NAME" 	 : "orange"
+}

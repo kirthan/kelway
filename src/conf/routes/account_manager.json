@@ -1,0 +1,128 @@
+{
+	"/account-managers": {
+		"module"        : "db_crud",
+		"authorisation" : "admin",
+		"method"		: "read",
+		"params"		: {
+			"model"   			: "account_manager",
+			"fields" 			: [ "first_name","last_name", "email","phone_number"]
+		},
+		"subroutes" : {
+			"/create" :{
+				"req_method": "post",
+				"module"    : "db_crud",
+				"method"	: "create",
+				"authorisation" : "admin",
+				"params":{
+					"audit_log_message"	: "Acount Manager Created",
+					"model"   			: "account_manager",
+					"validation" 		: {
+						"first_name"       : { 
+							"required": {
+								"error_message" : "Please enter First name"
+							},
+							"length": {
+								"error_message" : "Please enter First name,allowed length is in the range of 5-20.",
+								"min":5,
+								"max":20
+							}
+						},
+						"last_name"        : { 
+							"required": {
+								"error_message" : "Please enter Last name."
+							},
+							"length": {
+								"error_message" : "Please enter Last name,allowed length is in the range of 5-20.",
+								"min":5,
+								"max":20
+							}
+						},
+						"email"            : { 
+							"required":{
+								"error_message" : "Please enter Email."
+							},
+							"email": {
+								"error_message" : "Please enter valid email id."
+							}
+						}, 
+						"phone_number" 	   : { 
+							"required": {
+								"error_message" : "Please enter Phone Number."
+							}
+						}
+					}
+				}
+			},
+			"/update/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" : "Edited Account Manager",
+					"model"    	 		: "account_manager",
+					"query" 	 		: { 
+						"_id" : "${id}" 
+					},
+					"validation" : {
+						"first_name"       : { 
+							"required": {
+								"error_message" : "Please enter First name"
+							},
+							"length": {
+								"error_message" : "Please enter First name,allowed length is in the range of 5-20.",
+								"min":5,
+								"max":20
+							}
+						},
+						"last_name"        : { 
+							"required": {
+								"error_message" : "Please enter Last name."
+							},
+							"length": {
+								"error_message" : "Please enter Last name,allowed length is in the range of 5-20.",
+								"min":5,
+								"max":20
+							}
+						},
+						"email"            : { 
+							"required":{
+								"error_message" : "Please enter Email."
+							},
+							"email": {
+								"error_message" : "Please enter valid email id."
+							}
+						}, 
+						"phone_number" 	   : { 
+							"required": {
+								"error_message" : "Please enter Phone Number."
+							}
+						}
+					}
+				}
+			},
+			"/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "user",
+				"params"		: {
+					"model"   			: "account_manager",
+					"query"  			: { "_id" : "${id}" },
+					"fields" 			: [ "first_name","last_name", "email","phone_number"]
+				}
+			},
+			"/delete/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "delete",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" : "Deleted Account Manager",
+					"model"   			: "account_manager",
+					"query"  			: { "_id" : "${id}" }
+				}
+			}
+		}
+	}
+}

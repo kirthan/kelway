@@ -1,0 +1,10 @@
+{
+	"areaName": {
+		"valid" 	: ["newAreaName1", "newAreaName2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"areaContent": {
+		"valid" 	: ["areaContent1", "areaContent2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	}
+}

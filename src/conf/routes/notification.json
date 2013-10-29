@@ -1,0 +1,121 @@
+{
+	"/notification": {
+		"module"        : "db_crud",
+		"method"        : "read",
+		"authorisation" : "user",
+		"params"		: {
+			"model"   			: "notification",
+			"query"  			: {"customer_id": {"$regex":"${company}"}, "resolved_at": null },
+			"before" 			: [ "notifications.getCompany"],
+			"fields" 			: [ "title", "description","resolve_url", "created_by", "created_at", "severity", "notification_class"]
+		},
+		"subroutes" : {
+			"/create" : {
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "create",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message"	: "Added new Notification",
+					"model"       		: "notification",
+					"before" 	 		: ["notifications.setParams"], 
+					"validation" 		: {
+						"title" 			: { "required":{"error_message" : "Please enter Title."} },
+						"description" 		: { "required":{"error_message" : "Please enter Description."} },
+						"resolve_url" 		: { "required":{"error_message" : "Please enter Resolve_URL."} },
+						"customer_id" 		: { "required":{"error_message" : "Please enter Customer Id"} },
+						"severity" 	    	: { "required":{"error_message" : "Please enter Severity."} },
+						"notification_class": { "required":{"error_message" : "Please enter Notification Class."} }
+					}
+				}
+			},
+			"/update/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" 	: "Notification edited",
+					"model"       			: "notification",
+					"query" 				: { "_id" : "${id}" },
+					"validation" 			:  {
+						"title" 				: { "required":{"error_message" : "Please enter Title."} },
+						"description" 			: { "required":{"error_message" : "Please enter Description."} },
+						"resolve_url" 			: { "required":{"error_message" : "Please enter Resolve_URL."} },
+						"customer_id" 			: { "required":{"error_message" : "Please enter Customer Id"} },
+						"severity" 	    		: { "required":{"error_message" : "Please enter Severity."} },
+						"notification_class"	: { "required":{"error_message" : "Please enter Notification Class."} }
+					}
+				}
+			},
+			"/all" : {
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "user",
+				"params"		: {
+					"model"       		: "notification",
+					"query"  			: {"customer_id": {"$regex":"${company}"}},
+					"before" 			: [ "notifications.getCompany"],
+					"fields" 			: [ "title", "description","resolve_url", "created_by", "created_at", "resolved_by", "resolved_at", "severity", "notification_class"]
+				}
+			},
+			"/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "user",
+				"params"		: {
+					"model"   			: "notification",
+					"query"  			: { "_id" : "${id}" },
+					"fields" 			: [ "title", "description","resolve_url", "created_by", "created_at", "resolved_by", "resolved_at", "severity", "notification_class"]
+				}
+			},
+			"/delete/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "delete",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" : "Notification deleted",
+					"model"   			: "notification",
+					"query"  			: { "_id" : "${id}" }
+				}
+			},
+			"/for-customer/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "admin",
+				"params"		: {
+					"model"   			: "notification",
+					"fields" 			: [ "title", "description","resolve_url", "created_by", "created_at", "resolved_by", "resolved_at", "severity", "notification_class"],
+					"query"  			: { "customer_id" : "${id}", "resolved_at": null }
+				}
+			},
+			"/for-customer/all/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "admin",
+				"params"		: {
+					"model"   			: "notification",
+					"fields" 			: [ "title", "description","resolve_url", "created_by", "created_at", "resolved_by", "resolved_at", "severity", "notification_class"],
+					"query"  			: { "customer_id" : "${id}" }
+				}
+			},
+			"/resolve/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "user",
+				"params"		: {
+					"audit_log_message" : "Notification resolved",
+					"model"   			: 	"notification",
+					"before" 			: ["notifications.resolveUrl"],
+					"fields" 			: ["resolve_url"],
+					"query"  			: { "_id" : "${id}" }
+				}
+			}
+		}
+	}
+}

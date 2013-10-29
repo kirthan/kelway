@@ -1,0 +1,190 @@
+{
+	"/staff": {
+		"module"        : "db_crud",
+		"method"        : "read",
+		"authorisation" : "admin",
+		"params"		: {
+			"model"   			: "user",
+			"query"  			: { "roles" : { "$ne":"superAdmin" }, "$or" : [{ "roles":"admin"}]},
+			"fields" 			: ["user_name", "first_name","last_name","email","phone_number"]
+		},
+		"subroutes" : {
+			"/create" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "create",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" : "Added new user as staff",
+					"model"       		: "user",
+					"before" 			: [ "users.validateTwoPasswords","users.checkForDuplicateUserWhileCreating","users.md5Password", "users.setDefaultStaffRoles","users.saveStaffCompany" ],
+					"validation" 		: {
+						"user_name"  : { 
+							"required" : {
+								"error_message" : "Please enter Username."
+							},
+							"length" : {
+								"error_message" : "Please enter Username,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"password" : { 
+							"required" : {
+								"error_message" : "Please enter Password."
+							},
+							"length": {
+								"error_message" : "Please enter Password,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"email"            : { 
+							"required" : {
+								"error_message" : "Please enter Email."
+							},
+							"email" : {
+								"error_message" : "Please enter valid email id."
+							}
+						}, 
+						"confirm_password" : {
+						 	"required" : {
+								"error_message" : "Please enter Password."
+							},
+							"length": {
+								"error_message" : "Please enter Password,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"phone_number" : { 
+							"required" : {
+								"error_message" : "Please enter Phone Number."
+							}
+						},
+						"first_name" : { 
+							"required": {
+								"error_message" : "Please enter First name"
+							},
+							"length": {
+								"error_message" : "Please enter First name,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"last_name" : { 
+							"required" : {
+								"error_message" : "Please enter Last name."
+							},
+							"length" : {
+								"error_message" : "Please enter Last name,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						}
+					}
+				}
+			},
+			"/update/:id" :{
+				"req_method"	: "post",
+				"module"    	: "db_crud",
+				"method"		: "update",
+				"authorisation" : "admin",
+				"params"		: {
+					"audit_log_message" : "Edited staff details",
+					"model"       		: "user",
+					"before" 			: ["users.validateTwoPasswords", "users.checkForDuplicateUserWhileUpdating", "users.isUserNotSuperAdmin","users.md5Password", "users.setDefaultStaffRoles","users.saveStaffCompany" ],
+					"query" 			: { "_id" : "${id}" },
+					"validation" 		: {
+						"user_name"        : { 
+							"required" : {
+								"error_message" : "Please enter Username."
+							},
+							"length" : {
+								"error_message" : "Please enter Username,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"password" : { 
+							"required" : {
+								"error_message" : "Please enter Password."
+							},
+							"length": {
+								"error_message" : "Please enter Password,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"email" : { 
+							"required":{
+								"error_message" : "Please enter Email."
+							},
+							"email" : {
+								"error_message" : " Please enter valid email id."
+							}
+						}, 
+						"confirm_password" : {
+						 	"required" : {
+								"error_message" : "Please enter Password."
+							},
+							"length": {
+								"error_message" : "Please enter Password,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"phone_number" : { 
+							"required" : {
+								"error_message" : "Please enter Phone Number."
+							}
+						},
+						"first_name" : { 
+							"required" : {
+								"error_message" : "Please enter First name"
+							},
+							"length": {
+								"error_message" : "Please enter First name,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						},
+						"last_name"        : { 
+							"required": {
+								"error_message" : "Please enter Last name."
+							},
+							"length": {
+								"error_message" : "Please enter Last name,allowed length is in the range of 5-20.",
+								"min"			: 5,
+								"max"			: 20
+							}
+						}
+					}
+				}
+			},
+			"/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "read",
+				"authorisation" : "admin",
+				"params"		: {
+					"model"   			: "user",
+					"query"  			: { "_id" : "${id}" },
+					"fields" 			: ["user_name", "first_name","last_name","email","phone_number"]
+				}
+			},
+			"/delete/:id" :{
+				"req_method"	: "get",
+				"module"    	: "db_crud",
+				"method"		: "delete",
+				"authorisation" : "superAdmin",
+				"params"		: {
+					"audit_log_message" : "Deleted staff",
+					"model"   			: "user",
+					"before" 			: [ "users.isUserNotSuperAdmin" ],
+					"query"  			: { "_id" : "${id}" }
+				}
+			}
+		}
+	}
+}

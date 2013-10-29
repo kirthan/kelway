@@ -1,0 +1,30 @@
+{
+	"userName": {
+		"valid" 	: ["userName1", "userName2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"password": {
+		"valid" 	: ["password1", "password2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"confirmPassword": {
+		"valid" 	: ["password1", "password2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},	
+	"email": {
+		"valid" 	:["staff1@email.com", "staff2@email.com"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"phoneNumber": {
+		"valid" 	: ["1234567890", "1234567891"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"firstName": {
+		"valid" 	: ["firstName1", "firstName2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	},
+	"lastName": {
+		"valid" 	: ["lastName1", "lastName2"],
+		"inValid" 	: "jklshbj!@##@$5jgdhkfhgadsad"
+	}
+}
