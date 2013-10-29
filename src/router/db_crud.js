@@ -179,7 +179,11 @@ function DBCRUDRoute(app,routeParams){
 					if(responseObj.result){
 						responseObj.result = _.sortBy(responseObj.result, function(res){ return res.idx; })
 					}
-					callback(null, responseObj);
+					var postProecessResults = app.plugins.method_exec.seriesExecutor(routeParams.post_process_combined, responseObj); 
+					// Execute before methods 
+					postProecessResults(function(err,res){
+						callback(null, res);
+					})
 				})
 			}
 		})
