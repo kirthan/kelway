@@ -148,7 +148,7 @@ function DBCRUDRoute(app,routeParams){
 			}else{
 				var dbResults = results.pop(), // Records reference
 					count = routeParams.single_record ? 1: results.pop(); // Record count
-					responseObj = {status:'success',total:count}, calls = []; // Initialize response object
+					responseObj = {status:'success',Count:count}, calls = []; // Initialize response object
 				if(routeParams.single_record){
 					appendResult(responseObj,dbResults,routeParams.fields); // Post-process and send the single record
 					calls.push(function(callback){
@@ -160,7 +160,7 @@ function DBCRUDRoute(app,routeParams){
 					})
 				}
 				else{ // Post process all the records and send out.
-					responseObj.result = [];	
+					responseObj.value = [];	
 					_.each(dbResults,function(dbRes,i){
 						var singleRes = {};
 						appendResult(singleRes,dbRes,routeParams.fields);
@@ -168,7 +168,7 @@ function DBCRUDRoute(app,routeParams){
 						calls.push(function(callback){
 							afterMethods(singleRes,function(err,newSingleRes){
 								singleRes = newSingleRes;
-								responseObj.result.push(singleRes);
+								responseObj.value.push(singleRes);
 								callback();
 							})
 						})
@@ -176,8 +176,8 @@ function DBCRUDRoute(app,routeParams){
 					});
 				}
 				async.parallel(calls,function(){
-					if(responseObj.result){
-						responseObj.result = _.sortBy(responseObj.result, function(res){ return res.idx; })
+					if(responseObj.value){
+						responseObj.value = _.sortBy(responseObj.value, function(res){ return res.idx; })
 					}
 					var postProecessResults = app.plugins.method_exec.seriesExecutor(routeParams.post_process_combined, responseObj); 
 					// Execute before methods 
