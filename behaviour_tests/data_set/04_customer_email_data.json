@@ -1,0 +1,170 @@
+{
+	"CustomerCode": {
+		"valid" 	: ["DEMO", "DEM1"],
+		"inValid" 	: ""
+	},
+	"MailSummaryDeletedSizeMB": {
+		"valid" 	: ["0","1"],
+		"inValid" 	: ""
+	},
+	"MailSummaryNumber": {
+		"valid" 	: ["9","0"],
+		"inValid" 	: ""
+	},
+	"MailSummarySizeMB": {
+		"valid" 	: ["0.69", "0.68"],
+		"inValid" 	: ""
+	},
+	"MailSummaryTotalSizeMB": {
+		"valid" 	: ["0.69", "0.68"],
+		"inValid" 	: ""
+	},
+	
+	"MBCustomerCode": {
+		"valid" 	: ["DEMO", "DEM1"],
+		"inValid" 	: ""
+	},
+	"MBActiveSyncEnabled": {
+		"valid" 	: ["True", "False"],
+		"inValid" 	: ""
+	},
+	"MBAlias": {
+		"valid" 	: ["bbiege", "bbiege"],
+		"inValid" 	: ""
+	},
+	"MBDeletedItemCount": {
+		"valid" 	: ["0","1"],
+		"inValid" 	: ""
+	},
+	"MBDisplayName": {
+		"valid" 	: ["Brian Biege", "Brian Biege"],
+		"inValid" 	: ""
+	},
+	"MBEmailAddresses": {
+		"valid" 	: [
+						"brian@oldaddress.com; mblack@Demonstration.com", 
+						"brian@oldaddress.com; mblack@Demonstration.com"
+					],
+		"inValid" 	: ""
+	},
+	"MBGUID": {
+		"valid" 	: [
+			"b9683426-0aee-4af4-a839-57ddf7b76f02", 
+			"b9683426-0aee-4af4-a839-57ddf7b76f02"
+		],
+		"inValid" 	: ""
+	},
+	"MBIssueWarningQuota": {
+		"valid" 	: [0, 0],
+		"inValid" 	: ""
+	},
+	"MBItemCount": {
+		"valid" 	: [161, 160],
+		"inValid" 	: ""
+	},
+	"LastLogonTime": {
+		"valid" 	: ["", ""],
+		"inValid" 	: ""
+	},
+	"MBMailDatabase": {
+		"valid" 	: ["MBDB01", "MBDB02"],
+		"inValid" 	: ""
+	},
+	"MBMapiEnabled": {
+		"valid" 	: ["True", "False"],
+		"inValid" 	: ""
+	},
+	"MBName": {
+		"valid" 	: ["Mike Black", "Mike Black"],
+		"inValid" 	: ""
+	},
+	"MBOWAEnabled": {
+		"valid" 	: ["True", "False"],
+		"inValid" 	: ""
+	},
+	"MBPrimarySMTPAddress": {
+		"valid" 	: [
+						"mblack@Demonstration.com", 
+						"mblack@Demonstration.com"
+					],
+		"inValid" 	: ""
+	},
+	"MBProhibitSendQuota": {
+		"valid" 	: ["0","0"],
+		"inValid" 	: ""
+	},
+	"MBProhibitSendReceiveQuota": {
+		"valid" 	: ["0", "0"],
+		"inValid" 	: ""
+	},
+	"MBTotalDeletedSIzeMB": {
+		"valid" 	: ["0", "0"],
+		"inValid" 	: ""
+	},
+	"MBTotalSizeMB": {
+		"valid" 	: ["0.08", "0.09"],
+		"inValid" 	: ""
+	},
+	"MBListCount": {
+		"valid" 	: [2,	2],
+		"inValid" 	: ""
+	},
+	
+
+
+
+	"MCCustomerCode": {
+		"valid" 	: ["DEM0", "DEM0"],
+		"inValid" 	: ""
+	},
+	"MCAlias": {
+		"valid" 	: ["fcontact", "Contact"],
+		"inValid" 	: ""
+	},
+	"MCExternalEmailAddress": {
+		"valid" 	: ["fcontact@somewhere.com", "joconta@outside.com"],
+		"inValid" 	: ""
+	},
+	"MCName": {
+		"valid" 	: ["Fred Contact", "Contact"],
+		"inValid" 	: ""
+	},
+	"MCPrimarySMTPAddress": {
+		"valid" 	: ["fcontact@Demonstration.com","Contact@Demonstration.com"],
+		"inValid" 	: ""
+	},
+	"MCListCount": {
+		"valid" 	: [2,2],
+		"inValid" 	: ""
+	},
+
+
+	"DlistsAlias": {
+		"valid" 	: ["demolist", "demo2"],
+		"inValid" 	: ""
+	},
+	"DlistsCustomerCode": {
+		"valid" 	: ["DEM0", "DEM0"],
+		"inValid" 	: ""
+	},
+	"DlistsDisplayName": {
+		"valid" 	: ["Demo List", "Demo2 List"],
+		"inValid" 	: ""
+	},
+	"DlistsName": {
+		"valid" 	: ["Demo List", "Demo2 List"],
+		"inValid" 	: ""
+	},
+	"DlistsPrimarySMTPAddress": {
+		"valid" 	: ["demolist@Demonstration.com","demo2@Demonstration.com"],
+		"inValid" 	: ""
+	},
+	"DlistsSamAccountName": {
+		"valid" 	: ["demolist", "demo2"],
+		"inValid" 	: ""
+	},
+	"DlistsListCount": {
+		"valid" 	: [2, 2],
+		"inValid" 	: ""
+	}
+}

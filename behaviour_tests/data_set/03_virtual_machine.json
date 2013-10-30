@@ -1,0 +1,45 @@
+{
+	"VMCustomerCode": {
+		"valid" 	: ["RRI1", "RRI2"],
+		"inValid" 	: ""
+	},
+	"VMComputerName": {
+		"valid" 	: ["RRI1-server04", "RRI1-server03"],
+		"inValid" 	: ""
+	},
+	"VMOperatingSystem": {
+		"valid" 	: ["2012Std", "2008R2ent"],
+		"inValid" 	: ""
+	},
+	"VMSize": {
+		"valid" 	: ["small", "large"],
+		"inValid" 	: ""
+	},
+	"VMIPAddress": {
+		"valid" 	: ["10.0.10.5", "10.0.10.6"],
+		"inValid" 	: ""
+	},
+	"VMMessage": {
+		"valid" 	: [
+			"Your new virtual machine has been being configured.",
+			"Your new virtual machine has been being configured."
+		],
+		"inValid" 	: ""
+	},
+	"VMName": {
+		"valid" 	: ["RRI1-server04", "RRI1-server03"],
+		"inValid" 	: ""
+	},
+	"VMPassword": {
+		"valid" 	: ["0RRO9HGH|/", "0RRO9HGH|/"],
+		"inValid" 	: ""
+	},
+	"VMPoweredOffStatus": {
+		"valid" 	: ["PoweredOff", "PoweredOff"],
+		"inValid" 	: ""
+	},
+	"VMPoweredOnStatus": {
+		"valid" 	: ["PoweredOn", "PoweredOn"],
+		"inValid" 	: ""
+	}
+}

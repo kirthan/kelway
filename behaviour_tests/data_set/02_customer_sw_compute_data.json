@@ -1,0 +1,112 @@
+{
+	"SWCustomerCode": {
+		"valid" 	: ["RRI1", "RRI1"],
+		"inValid" 	: ""
+	},
+	"SWCPU": {
+		"valid" 	: [73, 74],
+		"inValid" 	: ""
+	},
+	"SWDisk": {
+		"valid" 	: [3650, 3651],
+		"inValid" 	: ""
+	},
+	"SWNumber": {
+		"valid" 	: [73, 74],
+		"inValid" 	: ""
+	},
+	"SWRAM": {
+		"valid" 	: [292, 293],
+		"inValid" 	: ""
+	},
+	
+
+	"VMCustomerCode": {
+		"valid" 	: ["RRI1", "RRI1"],
+		"inValid" 	: ""
+	},
+	"VMIPAddress": {
+		"valid" 	: ["10.1.1.9", "10.1.1.10"],
+		"inValid" 	: ""
+	},
+	"VMName": {
+		"valid" 	: ["RRI1-server8", "RRI1-server9"],
+		"inValid" 	: ""
+	},
+	"VMOS": {
+		"valid" 	: [
+			"Microsoft Windows Server 2012(64-bit)", 
+			"Microsoft Windows Server 2012(32-bit)"
+		],
+		"inValid" 	: ""
+	},
+	"VMRAMinGB": {
+		"valid" 	: [4, 8],
+		"inValid" 	: ""
+	},
+	"VMState": {
+		"valid" 	: ["On", "Off"],
+		"inValid" 	: ""
+	},
+	"VMvCPU": {
+		"valid" 	: [1, 2],
+		"inValid" 	: ""
+	},
+	"VMCount": {
+		"valid" 	: [2],
+		"inValid" 	: ""
+	},
+	
+
+	"VDCustomerCode": {
+		"valid" 	: ["RRI1", "RRI1"],
+		"inValid" 	: ""
+	},
+	"VDFreeSpaceGB": {
+		"valid" 	: [40.97, 35.36],
+		"inValid" 	: ""
+	},
+	"VDNumber": {
+		"valid" 	: [1,2],
+		"inValid" 	: ""
+	},
+	"VDServer": {
+		"valid" 	: ["RRI1-server1", "RRI1-server10"],
+		"inValid" 	: ""
+	},
+	"VDTotalCapacity": {
+		"valid" 	: [50, 100],
+		"inValid" 	: ""
+	},
+	"VDSummaryCount": {
+		"valid" 	: [2, 4],
+		"inValid" 	: ""
+	},
+	
+
+	"VDCapacityGB": {
+		"valid" 	: [50, 60],
+		"inValid" 	: ""
+	},
+	"VDDrive": {
+		"valid" 	: ["C:\\", "D:\\"],
+		"inValid" 	: ""
+	},
+	"VDFreeSpaceGB": {
+		"valid" 	: [33.27, 32.22],
+		"inValid" 	: ""
+	},
+	"VDPercFree": {
+		"valid" 	: [33.27, 33.33],
+		"inValid" 	: ""
+	},
+	"VDPercUsed": {
+		"valid" 	: [66.54, 67.54],
+		"inValid" 	: ""
+	},
+	"VDDetailsCount": {
+		"valid" 	: [2, 3],
+		"inValid" 	: ""
+	}
+
+}
