@@ -5,7 +5,7 @@ var restClient = require('./support/restclient'),
 
 describe('Customer data from database', function(){
 	before(function(done){
-		dataPool.getDataSet("01_login_logout", function(err, res){
+		dataPool.getDataSet("01_customer_data", function(err, res){
 			data = res;
 			done();
 		})

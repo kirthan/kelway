@@ -10,16 +10,7 @@
   "MEMCACHE_SERVER" : "localhost:11211",
 
   "ROUTE_CONFIG_FILES":[
-    "${BASE_DIR}/conf/routes/account_manager.json",
-    "${BASE_DIR}/conf/routes/customer.json",
-    "${BASE_DIR}/conf/routes/email_notification.json",
-    "${BASE_DIR}/conf/routes/miscellaneous.json",
-    "${BASE_DIR}/conf/routes/notification.json",
-    "${BASE_DIR}/conf/routes/server.json",
-    "${BASE_DIR}/conf/routes/server_request.json",
-    "${BASE_DIR}/conf/routes/staff.json",
-    "${BASE_DIR}/conf/routes/user.json",
-    "${BASE_DIR}/conf/routes/user_auth.json"
+    "${BASE_DIR}/conf/routes/customer.json"
   ],
 
   "PLUGIN_DIR" : "${BASE_DIR}/plugins/",

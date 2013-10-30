@@ -1,26 +1,11 @@
 {
-	"CustomerCode": {
-		"valid" 	: ["ACM3", "DEM0"],
-		"inValid" 	: ""
-	},
-	"CustomerName": {
-		"valid" 	: ["Acme Inc", "Demonstration"],
-		"inValid" 	: ""
-	},
-	"CustomerSWAssure": {
-		"valid" 	: ["Y", "N"],
-		"inValid" 	: ""
-	},
-	"CustomerSWBackup": {
-		"valid" 	: ["Y", "N"],
-		"inValid" 	: ""
-	},
-	"CustomerSWCompute": {
-		"valid" 	: ["Y", "N"],
-		"inValid" 	: ""
-	},
-	"CustomerSWMail": {
-		"valid" 	: ["Y", "N"],
-		"inValid" 	: ""
-	}	
+	"customers":[
+		{
+			"name": "Cloud Adventure Ltd.",
+			"code": "CADVENT",
+			"vms" : [
+			
+			]
+		}
+	]
 }

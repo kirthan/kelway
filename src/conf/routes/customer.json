@@ -1,10 +1,10 @@
 {
-	"/customers": {
+	"/Listcustomers": {
 		"module"        : "db_crud",
 		"method"        : "read",
 		"authorisation" : "admin",
 		"params"		: {
-			"model"   			: "company",
+			"model"   			: "customer",
 			"query"  			: {},
 			"fields" 			: [ "name", "short_code", "account_manager"]
 		},
