@@ -1,9 +1,9 @@
 {
 	"VERSION" : "1.0.0",
 	
-	"API_PORT" : "4444",
+	"API_PORT" : "3000",
 
-	"BASE_URL" : "http://localhost:4444/",
+	"BASE_URL" : "http://localhost:3000/",
 
 	"SALT" 		: "06@NG3",
 	
@@ -24,5 +24,5 @@
 	},
 	"DESTINATION_EMAIL":"omega.chetan@gmail.com",
 	"DB_URL"  : "mongodb://localhost:27017/",
-	"DB_NAME" 	 : "orange"
+	"DB_NAME" 	 : "kelway_api"
 }
