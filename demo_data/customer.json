@@ -1,3 +1,10 @@
-{
-	"asdf":"asdf"
-}
+[
+	{
+        "CustomerCode"      : "CADVENT",
+        "Name"   			: "Cloud Adventure Ltd.",
+        "SWAssure"		    : "Y",
+        "SWBackup"		    : "Y",
+        "SWCompute"		    : "N",
+        "SWMail"			: "Y"
+	}
+]

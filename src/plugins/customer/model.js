@@ -20,7 +20,7 @@ function CustomerModel(app){
         SWMail			: String
 	});
 
-    return db.conn.model('customer_data', customerSchema);
+    return db.conn.model('customer', customerSchema);
 }
 
 module.exports = CustomerModel;

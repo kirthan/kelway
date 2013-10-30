@@ -19,7 +19,7 @@ function EmailContactsModel(app){
        PrimarySMTPAddress       : String
 	});
 
-    return db.conn.model('email_contacts', emailContactSchema);
+  return db.conn.model('email_contact', emailContactSchema);
 }
 
 module.exports = EmailContactsModel;
