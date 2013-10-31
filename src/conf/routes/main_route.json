@@ -1,0 +1,184 @@
+{
+	"/Listcustomers" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "customer",
+			"fields" 			: ["CustomerCode", "Name"]
+		}
+	},
+	"/GetCustomerCode" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "customer",
+			"before" 			: [],
+			"after"				: ["customer.getParams"],
+			"query"  			: {"Name" : "${customername}"},
+			"fields" 			: ["CustomerCode"]
+		}
+	},
+	"/GetCustomerDetails" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "customer",
+			"before" 			: [],
+			"after"				: [],
+			"query"  			: {"Name" : "${customername}"},
+			"fields" 			: [
+									"CustomerCode", "SWAssure", "SWBackup","SWCompute", "SWMail"
+								]
+		}
+	},
+	"/GetSWcomputesummary" : {
+		"module"    	: "non_db_crud",
+		"method"		: "getSWcomputesummary"
+	},
+	"/ListVms" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: [],
+			"after"				: ["virtual_machine.getParamsForListVMs"],
+			"query"  			: {"CustomerCode" : "${customer}"},
+			"fields" 			: ["Name","IPAddress","OperatingSystem","RAMinGB","Status","vCPU", "CPUMemory"]
+		}
+	},
+	"/ListDiskSummary" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: [],
+			"after"				: ["virtual_machine.getParamsForListDiskSummary"],
+			"query"  			: {"CustomerCode" : "${customer}"},
+			"fields" 			: ["NumberOfDisks", "Name", "DiskMemory"]
+		}
+	},
+	"/ListDiskDetail" : {
+		"module"    	: "non_db_crud",
+		"method"		: "ListDiskDetailForVirtualMachine",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: [],
+			"after"				: ["virtual_machine.setParamsForListDiskDetail"],
+			"query"  			: {"Name" : "${vmname}"},
+			"fields" 			: ["DiskMemory", "NumberOfDisks"]
+		}
+	},
+	"/CreateVMFromTemplate" : {
+		"module"    	: "db_crud",
+		"method"		: "create",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: ["virtual_machine.setParamsToCreateVM"],
+			"after"				: ["virtual_machine.getParamsToCreateVM"],
+			"query"  			: {},
+			"fields" 			: []
+		}
+	},
+	"/DeleteVMFromTemplate" : {
+		"module"    	: "db_crud",
+		"method"		: "delete",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"query"  			: {"Name" : "${vmname}"},
+			"fields" 			: []
+		}
+	},
+	"/ResetVMPool" : {
+		"module"    	: "non_db_crud",
+		"method"		: "resetVMPool"
+	},
+	"/PowerOffVM" : {
+		"module"    	: "db_crud",
+		"method"		: "update",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: ["virtual_machine.powerOffVM"],
+			"after"				: ["virtual_machine.setParamsPowerOffVM"],
+			"query" 	 		: {"Name" : "${vmname}" },
+			"fields" 			: ["Status", "Name"]
+		}
+	},
+	"/PowerOnVM" : {
+		"module"    	: "db_crud",
+		"method"		: "update",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: ["virtual_machine.powerOnVM"],
+			"after"				: ["virtual_machine.setParamsPowerOnVM"],
+			"query" 	 		: {"Name" : "${vmname}" },
+			"fields" 			: ["Status", "Name"]
+		}
+	},
+	"/ShutDownOnVM" : {
+		"module"    	: "db_crud",
+		"method"		: "update",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: ["virtual_machine.powerOffVM"],
+			"after"				: ["virtual_machine.setParamsPowerOffVM"],
+			"query" 	 		: {"Name" : "${vmname}" },
+			"fields" 			: ["Status", "Name"]
+		}
+	},
+	"/RestartVM" : {
+		"module"    	: "db_crud",
+		"method"		: "update",
+		"params" 		: {
+			"model"       		: "virtual_machine",
+			"before" 			: ["virtual_machine.powerOnVM"],
+			"after"				: ["virtual_machine.setParamsPowerOnVM"],
+			"query" 	 		: {"Name" : "${vmname}" },
+			"fields" 			: ["Status", "Name"]
+		}
+	},
+	"/GetMailSummary" : {
+		"module"    	: "non_db_crud",
+		"method"		: "getMailSummary"
+	},
+	"/ListMailboxes" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "email_account",
+			"before" 			: [],
+			"after"				: ["email.getParams"],
+			"query"  			: {"CustomerCode" : "${customer}"},
+			"fields" 			: [
+				"ActiveSyncEnabled", "Alias", "CustomerCode", "DisplayName", 
+				"EmailAddresses", "GUID", "MailDatabase", "Name", "PrimarySMTPAddress",
+				"IssueWarningQuota",  "MapiEnabled", "OWAEnabled", 
+				"ProhibitSendQuota", "ProhibitSendReceiveQuota"
+			]
+		}
+	},
+	"/ListContacts" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "email_contacts",
+			"before" 			: [],
+			"after"				: [],
+			"query"  			: {"CustomerCode" : "${customer}"},
+			"fields" 			: ["Alias", "CustomerCode", "ExternalEmailAddress", "Name",
+									"PrimarySMTPAddress"]
+		}
+	},
+	"/ListDlists" : {
+		"module"    	: "db_crud",
+		"method"		: "read",
+		"params" 		: {
+			"model"       		: "distribution_lists",
+			"before" 			: [],
+			"after"				: [],
+			"query"  			: {"CustomerCode" : "${customer}"},
+			"fields" 			: [
+			"Alias", "CustomerCode", "DisplayName", "Name", "PrimarySMTPAddress", "SamAccountName"
+			]
+		}
+	}
+}
