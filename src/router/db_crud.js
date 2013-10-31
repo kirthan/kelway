@@ -36,7 +36,7 @@ function DBCRUDRoute(app,routeParams){
 			}else{
 				var result = results.pop(); // Get the result array
 				result = results.pop().shift(); // last but one has the ID
-				callback(null, {status:'success','id':result._id});
+				callback(null, {status:'success','id':result._id, 'value' : reqParams});
 			}
 		})
 	}
@@ -66,7 +66,7 @@ function DBCRUDRoute(app,routeParams){
 			if(err && err.length > 0){
 				callback(null, {status:'failed',errors:err});
 			}else{
-				callback(null, {status:'success'});
+				callback(null, {status:'success', val : reqParams});
 			}
 		})
 	}

@@ -10,7 +10,7 @@
   "MEMCACHE_SERVER" : "localhost:11211",
 
   "ROUTE_CONFIG_FILES":[
-    "${BASE_DIR}/conf/routes/customer.json"
+    "${BASE_DIR}/conf/routes/main_route.json"
   ],
 
   "PLUGIN_DIR" : "${BASE_DIR}/plugins/",
@@ -72,7 +72,7 @@
   "MEMCACHE_NIMSOFT_DATA_LOADING_LIFETIME":60,
 
   "DB_URL"  : "mongodb://localhost:27017/",
-  "DB_NAME"    : "orange" ,
+  "DB_NAME"    : "kelway_api" ,
 
   "BASIC_SMALL_VMS_PRICE"     : 140, 
   "BASIC_MEDIUM_VMS_PRICE"    : 275, 

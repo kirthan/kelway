@@ -46,13 +46,13 @@ function seedData(app, callback){
 		function(cb){ Customer.remove({},function(err){ cb(err) }); },
 		function(cb){ Customer.create(require('../demo_data/customer.json'), function(err){ cb(err) }); } ,
 		function(cb){ VirtualMechine.remove({},function(err){ cb(err) }); },
-		function(cb){ VirtualMechine.create(require('../demo_data/virtual_mechine.json'), function(err){ cb(err) }); }
-		// function(cb){ EmailAccount.remove({},function(err){ cb(err) }); },
-		// function(cb){ EmailAccount.create(require('../demo_data/email_account.json'), function(err){ cb(err) }); },
-		// function(cb){ EmailContact.remove({},function(err){ cb(err) }); },
-		// function(cb){ EmailContact.create(require('../demo_data/email_contact.json'), function(err){ cb(err) }); },
-		// function(cb){ DistrubutionList.remove({},function(err){ cb(err) }); },
-		// function(cb){ DistrubutionList.create(require('../demo_data/distrubution_list.json'), function(err){ cb(err) }); }
+		function(cb){ VirtualMechine.create(require('../demo_data/virtual_mechine.json'), function(err){ cb(err) }); },
+		function(cb){ EmailAccount.remove({},function(err){ cb(err) }); },
+		function(cb){ EmailAccount.create(require('../demo_data/email_account.json'), function(err){ cb(err) }); },
+		function(cb){ EmailContact.remove({},function(err){ cb(err) }); },
+		function(cb){ EmailContact.create(require('../demo_data/email_contact.json'), function(err){ cb(err) }); },
+		function(cb){ DistrubutionList.remove({},function(err){ cb(err) }); },
+		function(cb){ DistrubutionList.create(require('../demo_data/distrubution_list.json'), function(err){ cb(err) }); }
 	]
 
 	async.series(calls,function(err){

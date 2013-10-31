@@ -1,0 +1,51 @@
+[
+	{
+  		"Alias"                    :	"dummy",
+       	"CustomerCode"             :	"CADVENT",
+       	"ExternalEmailAddress"     : 	"dummy",
+       	"Name"                     : 	"dummy",
+       	"PrimarySMTPAddress"       :	"dummy"
+	},
+	{
+  		"Alias"                    :	"dummy",
+       	"CustomerCode"             :	"CADVENT",
+       	"ExternalEmailAddress"     : 	"dummy",
+       	"Name"                     : 	"dummy",
+       	"PrimarySMTPAddress"       :	"dummy"
+	},
+	{
+  		"Alias"                    :	"dummy",
+       	"CustomerCode"             :	"CADVENT",
+       	"ExternalEmailAddress"     : 	"dummy",
+       	"Name"                     : 	"dummy",
+       	"PrimarySMTPAddress"       :	"dummy"
+	},
+	{
+  		"Alias"                    :	"dummy",
+       	"CustomerCode"             :	"CADVENT",
+       	"ExternalEmailAddress"     : 	"dummy",
+       	"Name"                     : 	"dummy",
+       	"PrimarySMTPAddress"       :	"dummy"
+	},
+	{
+  		"Alias"                    :	"dummy",
+       	"CustomerCode"             :	"CADVENT",
+       	"ExternalEmailAddress"     : 	"dummy",
+       	"Name"                     : 	"dummy",
+       	"PrimarySMTPAddress"       :	"dummy"
+	},
+	{
+  		"Alias"                    :	"dummy",
+       	"CustomerCode"             :	"CADVENT",
+       	"ExternalEmailAddress"     : 	"dummy",
+       	"Name"                     : 	"dummy",
+       	"PrimarySMTPAddress"       :	"dummy"
+	},
+	{
+  		"Alias"                    :	"dummy",
+       	"CustomerCode"             :	"CADVENT",
+       	"ExternalEmailAddress"     : 	"dummy",
+       	"Name"                     : 	"dummy",
+       	"PrimarySMTPAddress"       :	"dummy"
+	}
+]

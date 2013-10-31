@@ -2,9 +2,10 @@
 	"db"               		: "mongodb",
 	"method_exec"      		: "method_exec",
 	"audit_log"      		: "audit_log",
-	"email"					:"email",
+	"email"					: "email",
 	"email_contacts" 		: "email_contacts",
 	"distribution_lists"	: "distribution_lists",
 	"virtual_machine"		: "virtual_machine",
-	"customer"				:"customer"
+	"customer"				: "customer",
+	"validator"				: "validator"
 }

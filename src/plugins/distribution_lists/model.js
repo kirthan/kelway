@@ -23,7 +23,7 @@ function EmailModel(app){
        PrimarySMTPAddress   : String
 	});
 
-    return db.conn.model('distribution_list', emailSchema);
+    return db.conn.model('distribution_lists', emailSchema);
 }
 
 module.exports = EmailModel;

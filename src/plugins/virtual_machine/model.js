@@ -19,7 +19,11 @@ function VirtualMachineModel(app){
         IPAddress       : String,
         Name            : String,
         Password        : String,
-        status          : String
+        Status          : String,
+        CPUMemory       : String,
+        DiskMemory      : String,
+        vCPU            : String,
+        NumberOfDisks   : Number
 	});
 
     return db.conn.model('virtual_machine', virtualMachineSchema);

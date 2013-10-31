@@ -1,0 +1,69 @@
+[
+	{
+		"ActiveSyncEnabled"    : "True",
+		"Alias"                : "dummy",
+		"CustomerCode"         : "CADVENT",
+		"DisplayName"          : "dummy",
+		"EmailAddresses"       : "dummy",
+		"GUID"                 : "dummy",
+		"MailDatabase"         : "dummy",
+		"Name"                 : "dummy",
+		"PrimarySMTPAddress"   : "dummy"
+	},
+	{
+		"ActiveSyncEnabled"    : "dummy",
+		"Alias"                : "dummy",
+		"CustomerCode"         : "CADVENT",
+		"DisplayName"          : "dummy",
+		"EmailAddresses"       : "dummy",
+		"GUID"                 : "dummy",
+		"MailDatabase"         : "dummy",
+		"Name"                 : "dummy",
+		"PrimarySMTPAddress"   : "dummy"
+	},
+	{
+		"ActiveSyncEnabled"    : "dummy",
+		"Alias"                : "dummy",
+		"CustomerCode"         : "CADVENT",
+		"DisplayName"          : "dummy",
+		"EmailAddresses"       : "dummy",
+		"GUID"                 : "dummy",
+		"MailDatabase"         : "dummy",
+		"Name"                 : "dummy",
+		"PrimarySMTPAddress"   : "dummy"
+	},
+	{
+		"ActiveSyncEnabled"    : "dummy",
+		"Alias"                : "dummy",
+		"CustomerCode"         : "CADVENT",
+		"DisplayName"          : "dummy",
+		"EmailAddresses"       : "dummy",
+		"GUID"                 : "dummy",
+		"MailDatabase"         : "dummy",
+		"Name"                 : "dummy",
+		"PrimarySMTPAddress"   : "dummy"
+	},
+	{
+		"ActiveSyncEnabled"    : "dummy",
+		"Alias"                : "dummy",
+		"CustomerCode"         : "CADVENT",
+		"DisplayName"          : "dummy",
+		"EmailAddresses"       : "dummy",
+		"GUID"                 : "dummy",
+		"MailDatabase"         : "dummy",
+		"Name"                 : "dummy",
+		"PrimarySMTPAddress"   : "dummy"
+	},
+	{
+		"ActiveSyncEnabled"    : "dummy",
+		"Alias"                : "dummy",
+		"CustomerCode"         : "CADVENT",
+		"DisplayName"          : "dummy",
+		"EmailAddresses"       : "dummy",
+		"GUID"                 : "dummy",
+		"MailDatabase"         : "dummy",
+		"Name"                 : "dummy",
+		"PrimarySMTPAddress"   : "dummy"
+	}
+	
+]

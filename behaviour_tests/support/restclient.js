@@ -1,5 +1,5 @@
 var restify = require('restify');
 
 module.exports = restify.createJsonClient({
-	url: 'http://localhost:4444'
+	url: 'http://localhost:3000'
 });

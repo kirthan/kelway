@@ -1,13 +1,16 @@
 var restClient = require('./support/restclient'),
 	should 	   = require('should'),
 	dataPool   = require('./support/dataLoader'),
-	accessToken, data;
+	accessToken, data, vmData;
 
 describe('Create Virtual Machine', function(){
 	before(function(done){
-		dataPool.getDataSet("01_login_logout", function(err, res){
+		dataPool.getDataSet("customer", function(err, res){
 			data = res;
-			done();
+			dataPool.getDataSet("virtual_mechine", function(err, res2){
+				vmData = res2;
+				done();
+			})
 		})
 	})
 
@@ -18,15 +21,19 @@ describe('Create Virtual Machine', function(){
 
 	it('Create virtual machine',function(done){
 		restClient.get(
-			'/CreateVMFromTemplate?customercode='+ data.VMCustomerCode.valid[0]+'&computername='+
-			data.VMComputerName.valid[0] + '&os='+ data.VMOperatingSystem.valid[0] + 
-			'&size=' + data.VMSize.valid[0],
+			'/CreateVMFromTemplate?customercode='+ data[0].CustomerCode +'&computername=dummyServerName&os='+ vmData[0].OperatingSystem + 
+			'&size=' + vmData[0].Size,
 			function(err, req, res, obj){
 				if(err){ throw(err) }
-				obj.IPAddress.should.equal(data.VMIPAddress.valid[0])
-				obj.Message.should.equal(data.VMMessage.valid[0])
-				obj.Name.should.equal(data.VMName.valid[0])
-				obj.Password.should.equal(data.VMPassword.valid[0])
+					console.log(obj)
+					restClient.get(
+					'/DeleteVMFromTemplate?vmname=dummyServerName',
+					function(err, req, res, obj){
+						if(err){ throw(err) }
+							console.log(obj)
+							done()
+					}
+				)
 			}
 		)
 	})
@@ -36,64 +43,59 @@ describe('Create Virtual Machine', function(){
 			'/ResetVMPool',
 			function(err, req, res, obj){
 				if(err){ throw(err) }
-				// obj.Count.should.equal(data.VMVirtualMachinesCount.valid[0])
+					console.log(obj)
+					done()
 			}
 		)
 	})
-})
-
-describe('Control power state of virtual machine', function(){
-	before(function(done){
-		done()
-	})
-
-	after(function(done){
-		done()
-	})
-
 
 	it('Power off virtual machine',function(done){
 		restClient.get(
-			'PowerOffVM?vmname='+ data.VMName.valid[0],
+			'/PowerOffVM?vmname='+ vmData[0].Name,
 			function(err, req, res, obj){
 				if(err){ throw(err) }
-					obj.Status.should.equal(data.VMPoweredOffStatus.valid[0])
-					obj.VMName.should.equal(data.VMName.valid[0])
+				obj.val.Status.should.equal("poweredOff")
+				console.log(obj)
+				done()
 			}
 		)
 	})
 
 	it('Power on virtual machine',function(done){
 		restClient.get(
-			'PowerOnVM?vmname='+ data.VMName.valid[0],
+			'/PowerOnVM?vmname='+ vmData[0].Name,
 			function(err, req, res, obj){
 				if(err){ throw(err) }
-					obj.Status.should.equal(data.VMPoweredOnStatus.valid[0])
-					obj.VMName.should.equal(data.VMName.valid[0])
+				obj.val.Status.should.equal("poweredOn")
+				console.log(obj)
+				done()
 			}
 		)
 	})
 
 	it('Shutdown virtual machine',function(done){
 		restClient.get(
-			'ShutDownOnVM?vmname='+ data.VMName.valid[0],
+			'/ShutDownOnVM?vmname='+ vmData[0].Name,
 			function(err, req, res, obj){
 				if(err){ throw(err) }
-					obj.Status.should.equal(data.VMPoweredOffStatus.valid[0])
-					obj.VMName.should.equal(data.VMName.valid[0])
+				obj.val.Status.should.equal("poweredOff")
+				console.log(obj)
+				done()
 			}
 		)
 	})
 
 	it('Restart virtual machine',function(done){
 		restClient.get(
-			'RestartVM?vmname='+ data.VMName.valid[0],
+			'/RestartVM?vmname='+ vmData[0].Name,
 			function(err, req, res, obj){
 				if(err){ throw(err) }
-					obj.Status.should.equal(data.VMPoweredOnStatus.valid[0])
-					obj.VMName.should.equal(data.VMName.valid[0])
+				obj.val.Status.should.equal("poweredOn")
+				console.log(obj)
+				done()
 			}
 		)
 	})
-
 })
+
+

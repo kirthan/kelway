@@ -3,7 +3,7 @@ var _ = require('underscore'),
 module.exports = {
 	//  *** `public` getDataSet : *** Function to load data set
 	getDataSet : function(file, callback){
-		fs.readFile(__dirname + "/../data_set/" + file + ".json", 
+		fs.readFile(__dirname + "/../../demo_data/" + file + ".json", 
 			'utf8',function(err,data){
 			if(err){ 
 				throw new Error('Cannot read file.'); 
