@@ -39,8 +39,8 @@ function seedData(app, callback){
 	var Customer = app.plugins.db.getModel('customer'),
 		VirtualMechine = app.plugins.db.getModel('virtual_machine'),
 		EmailAccount = app.plugins.db.getModel('email_account'),
-		EmailContact = app.plugins.db.getModel('email_contact'),
-		DistrubutionList = app.plugins.db.getModel('distribution_list');
+		EmailContact = app.plugins.db.getModel('email_contacts'),
+		DistrubutionList = app.plugins.db.getModel('distribution_lists');
 
 	var calls = [
 		function(cb){ Customer.remove({},function(err){ cb(err) }); },
