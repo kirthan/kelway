@@ -7,81 +7,16 @@
 
   "BASE_URL" : "http://localhost:3000/",
 
-  "MEMCACHE_SERVER" : "localhost:11211",
-
   "ROUTE_CONFIG_FILES":[
     "${BASE_DIR}/conf/routes/main_route.json"
   ],
 
   "PLUGIN_DIR" : "${BASE_DIR}/plugins/",
-  "FAILED_EMAILS_DIR" : "${BASE_DIR}/../temp/failed_emails",
 
   "TOKEN_DIR" : "${BASE_DIR}/../temp/tokens/",
   "SALT"    : "06@NG3",
   "TOKEN_TIMEOUT": 15000,
-  "EMAIL_TEMPLATE_DIR": "${BASE_DIR}/../templates/email/",
-  "DESTINATION_EMAIL":"serviceworksadmin@kelway.com",
-  "EMAIL" :{
-    "FROM":"noreply.kelway.com",
-    "RETRY_COUNT": 5,
-    "RETRY_INTERVAL":10,
-    "SMTP":{
-      "SERVICE": "Gmail",
-      "AUTH":{
-        "USER": "abhiadds@gmail.com",
-        "PASS": "indianabhi"
-      }
-    }
-  },
-  "MEMCACHE" :{
-    "TIME_OUT":3000,
-    "RETRIES" : 1,
-    "HOST"    : "localhost",
-    "PORT"    : 11211,
-    "DISABLED": false 
-  },
-  "NIMSOFT" : {
-    "DISABLED": false,
-    "TIMEOUT" : 3000,
-    "HOST" : "194.105.149.12",
-    "PORT" : "80",
-    "BASE_PATH" : "/rest",
-    "HEADERS" : {
-      "Accept"    : "application/json",
-      "Content-type"  : "application/json"
-    },
-    "AUTH" : {
-      "USER" : "Corpedge",
-      "PASS" : "C0rpEdg3"
-    },
-    "QOS":{
-      "CPU"     :{"NAME": "QOS_VMWARE_VM_CPU_SYSTEM","TARGET":"CPU+Usage+(Average%2FRate)"},
-      "MEMORY"  :{"NAME": "QOS_VMWARE_VM_GUEST_MEMORY_USAGE_PCT","TARGET":"Memory%20Usage"},
-      "DISK"    :{"NAME": "QOS_VMWARE_VM_GUEST_DISK_FREE","TARGET":"C%3A%5C%2FFree%2B(in+%2525+of+Capacity)"},
-      "DISKIOP" :{"NAME": "QOS_VMWARE_VIRTUAL_DISK_READ_REQUEST","TARGET":"Virtual%20Disks%2Fscsi0%3A0%2FDisk%20Average%20Read%20Requests%20Per%20Second"},
-      "POWER"   :{"NAME": "QOS_VMWARE_VARIABLE","TARGET":"PowerState"}
-    },
-    "NO_SAMPLES": 20,
-    "STARTTIME_BEFORE":{"DELTA":"30", "FOR":"months" },
-    "ENDTIME_BEFORE":{"DELTA":"15","FOR":"minutes"}
-  },
-
-  "MEMCACHE_HOST" : "localhost",
-  "MEMCACHE_PORT" : "11211",
-  "MEMCACHE_NIMSOFT_DATA_TOTAL_LIFETIME":3000,
-  "MEMCACHE_NIMSOFT_DATA_LOADING_LIFETIME":60,
 
   "DB_URL"  : "mongodb://localhost:27017/",
-  "DB_NAME"    : "kelway_api" ,
-
-  "BASIC_SMALL_VMS_PRICE"     : 140, 
-  "BASIC_MEDIUM_VMS_PRICE"    : 275, 
-  "BASIC_LARGE_VMS_PRICE"     : 425, 
-  "ESSENTIAL_SMALL_VMS_PRICE"   : 200, 
-  "ESSENTIAL_MEDIUM_VMS_PRICE"  : 390, 
-  "ESSENTIAL_LARGE_VMS_PRICE"   : 605, 
-  "PREMIUM_SMALL_VMS_PRICE"     : 260, 
-  "PREMIUM_MEDIUM_VMS_PRICE"    : 510, 
-  "PREMIUM_LARGE_VMS_PRICE"     : 790,
-  "PER_GB_ADDITIONAL_MEMORY_COST" : "0.72"
+  "DB_NAME"    : "kelway_api"
 }
