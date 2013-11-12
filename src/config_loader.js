@@ -36,7 +36,10 @@ function ConfigLoader(baseConfigFile, envSpecificConfigFile, fs){
 
 	//  *** `public` loadEnvSpecificConfigFile : *** Function to load Environment specific file
 	this.loadEnvSpecificConfigFile = function(serviceApp, callback){
-
+		if(envSpecificConfigFile == null){
+			callback();
+			return;
+		}
 		serviceApp.set('BASE_DIR',__dirname);
 
 		fs.readFile(envSpecificConfigFile,'utf8',function(err,data){

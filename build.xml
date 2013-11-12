@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="Service App :: Project Orange" default="build">
-	<target name="build" depends="clean,init,npm-install,mocha,istanbul,docco"></target>
+	<target name="build" depends="clean,init,npm-install"></target>
 	<target name="test" depends="clean,init,mocha,istanbul"></target>
 
 	<target name="clean" description="Cleanup build folder and subfolders if required">
