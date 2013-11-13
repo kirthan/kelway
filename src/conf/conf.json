@@ -1,7 +1,7 @@
 {
   "VERSION" : "1.0.0",
   
-  "API_PORT" : "3000",
+  "API_PORT" : "3300",
 
   "ROUTER_DIR" : "${BASE_DIR}/router/",
 
