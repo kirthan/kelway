@@ -8,7 +8,7 @@ server.get('.*',function(req, res) {
     var baseValue = getBaseValue(req.url);
 
     for (var i = 0; i < 20; i++) {
-      var sampleValue = parseInt(Math.random() * 10) + baseValue
+      var sampleValue = parseInt(Math.random() * 5) + baseValue
         , sampleTime = moment().subtract('hours',i)
         , formattedTime = sampleTime.format('YYYY-DD-MM') + 'T' + sampleTime.format('hh:mm:ss') + 'Z';
       data.push({samplevalue: sampleValue, sampletime:sampleTime})
@@ -69,7 +69,7 @@ getBaseValue = function(pathname){
       "Virtual%20Disks%2Fscsi0%3A0%2FDisk%20Average%20Read%20Requests%20Per%20Second" : heavyWorkLoad
     },
      "hr01" : {
-      "C%3A%5C%2FFree%2B(in+%2525+of+Capacity)" : 81,
+      "C%3A%5C%2FFree%2B(in+%2525+of+Capacity)" : 75,
       "CPU+Usage+(Average%2FRate)" : heavyWorkLoad,
       "Memory%20Usage" : heavyWorkLoad,
       "Virtual%20Disks%2Fscsi0%3A0%2FDisk%20Average%20Read%20Requests%20Per%20Second" : heavyWorkLoad
