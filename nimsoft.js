@@ -88,9 +88,16 @@ getBaseValue = function(pathname){
     }
   }
   var pathArray = pathname.split("/")
-    , baseValue
-    , serverType = pathArray[6].split('-')[1]
-    , serverInfo = pathArray[7]
+    , baseValue, serverType, serverInfo ;
+    if(pathArray[6]){
+      var arr = pathArray[6].split('-');
+      if(arr[1]){
+        serverType = arr[1]
+      }
+    }
+    if(pathArray[7]){
+      serverInfo = pathArray[7]
+    }
    
     if(serverType 
       && defaultServerValues[serverType]
@@ -98,7 +105,7 @@ getBaseValue = function(pathname){
       && defaultServerValues[serverType][serverInfo]
     ){
       baseValue = defaultServerValues[serverType][serverInfo]
-    }else {
+    }else{
       baseValue = parseInt(Math.random() * 80);
     }
   return baseValue;
